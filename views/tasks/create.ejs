@@ -1,0 +1,42 @@
+<%- include('header'); -%>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                ایجاد وظیفه جدید
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/tasks/add">
+                    <div class="form-group">
+                        <label for="task_title">عنوان</label>
+                        <input type="text" class="form-control" name="task_title" id="task_title"
+                            placeholder="عنوان وظیفه">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="task_category">دسته بندی</label>
+                        <select class="form-control" name="task_category" id="task_category">
+                            <option value="مالی">مالی</option>
+                            <option value="بخش فنی">بخش فنی</option>
+                            <option value="روابط عمومی">روابط عمومی</option>
+                            <option value="نیروی انسانی">نیروی انسانی</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task_assignee">انجام دهنده</label>
+                        <input type="text" class="form-control" name="task_assignee" id="task_assignee"
+                            placeholder="انجام دهنده وظیفه">
+                        <!-- <select class="form-control" name="task_category" id="task_category">
+                                        <option value="0">انتخاب کنید</option>
+                                    </select> -->
+                    </div>
+                    <button type="submit" id="submit-create" class="btn btn-success">ذخیره اطلاعات</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<%- include('footer'); -%>

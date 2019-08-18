@@ -1,0 +1,51 @@
+<script>
+    let submitbtn = document.querySelector('#submit-create');
+    let inputs = document.querySelectorAll('input');
+    let task_category = document.querySelector('#task_category');
+    let options = Object.values(task_category.options)
+
+    submitbtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        formValidation(inputs);
+        if (!(formValidation(inputs)) && selectValidation(options, task_category)) {
+            e.path[1].submit();
+        }
+    })
+    function formValidation(array) {
+        let i = 0;
+        array.forEach(element => {
+
+            if (element.value == "") {
+                element.style.borderColor = "red";
+                i++;
+            } else {
+                element.style.borderColor = "#ced4da";
+
+            }
+        });
+        if (i) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function selectValidation(array, select) {
+        select.style.borderColor = "red";
+        if (array[select.options.selectedIndex].value == "") {
+            select.style.borderColor = "red";
+            return false;
+
+        }
+        else {
+            select.style.borderColor = "#ced4da";
+            return true;
+        }
+    }
+
+
+
+</script>
+<script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

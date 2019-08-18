@@ -1,0 +1,54 @@
+<%- include('../tasks/header'); -%>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                ویرایش دسته بندی
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header text-center">
+
+                            </div>
+                            <div class="card-body">
+
+                                <div id="empty-m" class="alert alert-danger" style="display:none;">
+                                    <p class="text-center">لطفا مقادیر خالی را پر نمایید</p>
+                                </div>
+                                <form action="/category/edit" method="POST" id="form-edit-categort">
+                                    <div class="form-group">
+                                        <label for="category_title">عنوان دسته بندی</label>
+                                        <input type="hidden" name="category_id" value="<%= categorys.category_id %>">
+                                        <input type="text" class="form-control" name="category_title"
+                                            id="category_title" placeholder="" autocomplete="off"
+                                            value="<%= categorys.category_title %>">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fullname">کاربر ایجاد کننده</label>
+                                        <input type="text" readonly class="form-control" name="fullname" id="fullname"
+                                            autocomplete="off" placeholder="" value="<%= categorys.fullname %>">
+                                        <input type="hidden" id="user_id" name="user_id"
+                                            value="<%= categorys.user_id %>">
+                                    </div>
+                                    <button type="submit" id="submit-form" class="btn btn-success btn-block">ذخیره
+                                        ویرایش</button>
+                                </form>
+                                </br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script src="/assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>

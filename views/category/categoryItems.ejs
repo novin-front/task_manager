@@ -1,0 +1,16 @@
+<tr>
+    <td><%= category.category_title%></td>
+    <td><%= category.fullname %></td>
+    <td>
+        <a href="/category/edit/<%= category.category_id%>">
+            <i class="material-icons">
+                edit
+            </i>
+        </a>
+        <a href="/category/delete/<%= category.category_id%>">
+            <i class="material-icons">
+                delete
+            </i>
+        </a>
+    </td>
+</tr>

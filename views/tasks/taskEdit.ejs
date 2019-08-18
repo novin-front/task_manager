@@ -1,0 +1,67 @@
+<%- include('header'); -%>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                ایجاد وظیفه جدید
+            </div>
+            <div class="card-body">
+
+                <form method="POST" action="/tasks/edit/">
+                    <div class="form-group">
+                        <label for="task_title">عنوان</label>
+                        <input type="hidden" name="id" value="<%= tasks.id %>">
+                        <input type="text" class="form-control" name="task_title" id="task_title"
+                            placeholder="عنوان وظیفه" value="<%= tasks.task_title %>">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="task_category">دسته بندی</label>
+                        <select class="form-control" name="task_category" id="task_category" required>
+                            <option value="" selected disabled hidden>انتخاب کنید</option>
+                            <option value="مالی">مالی</option>
+                            <option value="بخش فنی">بخش فنی</option>
+                            <option value="روابط عمومی">روابط عمومی</option>
+                            <option value="نیروی انسانی">نیروی انسانی</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task_assignee">انجام دهنده</label>
+                        <input type="text" class="form-control" name="task_assignee" id="task_assignee"
+                            placeholder="انجام دهنده وظیفه" value="<%= tasks.task_assignee %>">
+                        <!-- <select class="form-control" name="task_category" id="task_category">
+                                        <option value="0">انتخاب کنید</option>
+                                    </select> -->
+                    </div>
+                    <div class="form-group">
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="task_status" id="inlineRadio1" value="0"
+                                <% if (tasks.task_status == 0) { %> checked <% } %>>
+                            <label class="form-check-label" for="inlineRadio1">ایجاد شده</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="task_status" id="inlineRadio2" value="1"
+                                <% if (tasks.task_status == 1) { %> checked <% } %>>
+                            <label class="form-check-label" for="inlineRadio2">در حال انجام</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="task_status" id="inlineRadio3" value="2"
+                                <% if (tasks.task_status == 2) { %> checked <% } %>>
+                            <label class="form-check-label" for="inlineRadio3">انجام شده</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="task_status" id="inlineRadio4" value="3"
+                                <% if (tasks.task_status == 3) { %> checked <% } %>>
+                            <label class="form-check-label" for="inlineRadio4">لغو شده</label>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit-create" class="btn btn-success">ثبت تغییرات</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<%- include('footer'); -%>
