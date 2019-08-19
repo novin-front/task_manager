@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 require('./boot/middlewareConfig')(app);
 require('./boot/appConfig')(app);
+require('./boot/403')(app);
 
-// require('./boot/403')(app);
 require('./router/roters')(app);
 
 require('./boot/404')(app);
