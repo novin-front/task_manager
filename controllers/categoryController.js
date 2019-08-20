@@ -1,8 +1,5 @@
 const db = require('../boot/connection')
 exports.listCategory = (req, res) => {
-    if (!("user" in req.session)) {
-        return res.redirect('/auth/login');
-    }
     db.query("SELECT * FROM `task_category`", (error, results, fields) => {
         if (error) throw error;
 
@@ -30,17 +27,12 @@ exports.addcategory = (req, res) => {
     })
 }
 exports.showFormAddCategory = (req, res) => {
-    if (!("user" in req.session)) {
-        return res.redirect('/auth/login');
-    }
     res.render('category/add', {
         user: req.session.user
     })
 }
 exports.editCategory = (req, res) => {
-    if (!("user" in req.session)) {
-        return res.redirect('/auth/login');
-    }
+
     let category = {
         user_id: req.body.user_id,
         fullname: req.body.fullname,
@@ -59,9 +51,6 @@ exports.editCategory = (req, res) => {
 
 }
 exports.getEditCategory = (req, res) => {
-    if (!("user" in req.session)) {
-        return res.redirect('/auth/login');
-    }
     const id = req.params.id;
 
     db.query("SELECT * FROM `task_category` WHERE `category_id`= ?", id, (error, results, fields) => {
@@ -74,9 +63,6 @@ exports.getEditCategory = (req, res) => {
     })
 }
 exports.deleteCategory = (req, res) => {
-    if (!("user" in req.session)) {
-        return res.redirect('/auth/login');
-    }
     const id = req.params.id;
 
     db.query("DELETE FROM `task_category` WHERE `task_category`.`category_id` = ?", id, (error, results, fields) => {
